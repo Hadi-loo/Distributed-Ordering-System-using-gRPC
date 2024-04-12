@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package orderingSystem;
+
+option go_package = "orderingSystem/src/proto";
+
+service OrderManagement {
+  rpc UnaryGetOrder(OrderRequest) returns (OrderResponse) {}
+  rpc ServerStreamGetOrder(OrderRequest) returns (stream OrderResponse) {}
+  rpc ClientStreamGetOrder(stream OrderRequest) returns (OrderResponse) {}
+  rpc BiDiStreamGetOrder(stream OrderRequest) returns (stream OrderResponse) {}
+}
+
+message OrderRequest {
+  int32 order_id = 1;
+  string order_name = 2;
+}
+
+message OrderResponse {
+  int32 order_id = 1;
+  string order_name = 2;
+  google.protobuf.Timestamp order_date = 3;
+}
