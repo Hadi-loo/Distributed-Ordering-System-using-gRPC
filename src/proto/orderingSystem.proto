@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
 package orderingSystem;
 
 option go_package = "orderingSystem/src/proto";
@@ -14,12 +12,12 @@ service OrderManagement {
 }
 
 message OrderRequest {
-  int32 order_id = 1;
-  string order_name = 2;
+  int32 OrderID = 1;
+  string OrderName = 2;
 }
 
 message OrderResponse {
-  int32 order_id = 1;
-  string order_name = 2;
-  google.protobuf.Timestamp order_date = 3;
+  int32 OrderId = 1;
+  string OrderName = 2;
+  string OrderTimestamp = 3;
 }
