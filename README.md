@@ -55,18 +55,13 @@ The `.proto` file is written in proto3 syntax, which is a language-neutral, plat
 
 We defined a service with RPC (Remote Procedure Call) methods. Inside the `OrderManagement` service, there are four different RPC methods defined:
 
-1. 
-`UnaryGetOrder:` A simple RPC where the client sends a single OrderRequest and gets a single OrderResponse.
+1. `UnaryGetOrder:` A simple RPC where the client sends a single OrderRequest and gets a single OrderResponse.
 
-2. 
-`ServerStreamGetOrder:` A server streaming RPC where the client sends a single OrderRequest and gets a stream of OrderResponse messages back.
+2. `ServerStreamGetOrder:` A server streaming RPC where the client sends a single OrderRequest and gets a stream of OrderResponse messages back.
 
-3. 
-`ClientStreamGetOrder:` A client streaming RPC where the client sends a stream of OrderRequest messages and gets a single OrderResponse.
+3. `ClientStreamGetOrder:` A client streaming RPC where the client sends a stream of OrderRequest messages and gets a single OrderResponse.
 
-4. 
-`BiDiStreamGetOrder:` A bidirectional streaming RPC where both the client and server send a stream of messages to each other.
-
+4. `BiDiStreamGetOrder:` A bidirectional streaming RPC where both the client and server send a stream of messages to each other.
 
 
 ### Client
