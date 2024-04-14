@@ -45,7 +45,8 @@ go mod download
 
 The `.proto` file is written in proto3 syntax, which is a language-neutral, platform-neutral, extensible way of serializing structured data for use in communications protocols, data storage, and more. Here's some explanation on the .proto file code and its functionality:
 
-```service OrderManagement {
+```proto
+service OrderManagement {
   rpc UnaryGetOrder(OrderRequest) returns (OrderResponse) {}
   rpc ServerStreamGetOrder(OrderRequest) returns (stream OrderResponse) {}
   rpc ClientStreamGetOrder(stream OrderRequest) returns (OrderResponse) {}
