@@ -1,6 +1,6 @@
 # Distributed Ordering System using gRPC
 
-This Go-based gRPC project aims to facilitate efficient communication between clients and servers through four distinct methods: unary, server-streaming, client-streaming, and bidirectional streaming for fetching order data. Leveraging the gRPC framework, it enables seamless communication between distributed systems, allowing for real-time data retrieval and processing. Through these different paradigms, the project showcases the versatility and scalability of gRPC in modern software development.
+This Go-based gRPC project aims to facilitate efficient communication between client and server through four distinct methods: unary, server-streaming, client-streaming, and bidirectional streaming for fetching order data.Through these different paradigms, the project showcases the versatility and scalability of gRPC in modern software development.
 
 - [Requirements](#requirements)
 - [Structure and Implementation](#structure-and-implementation)
@@ -12,6 +12,32 @@ This Go-based gRPC project aims to facilitate efficient communication between cl
 - [How to run](#how-to-run)
 
 ## Requirements
+
+For this project, the installation of the Go programming language is required. Additionally, the dependencies for gRPC packages are specified in the go.mod file, as illustrated in the following box:
+
+```go
+module orderingSystem
+
+go 1.22
+
+require (
+	google.golang.org/grpc v1.63.2
+	google.golang.org/protobuf v1.33.0
+)
+
+require (
+	golang.org/x/net v0.24.0 // indirect
+	golang.org/x/sys v0.19.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240412170617-26222e5d3d56 // indirect
+)
+
+```
+You can use the following command to download the requirments metioned in above box:
+
+```go
+go mod download
+```
 
 ## Structure and Implementation
 
@@ -34,7 +60,6 @@ To obtain results for all four methods, the server and client files are executed
 
 #### Server Terminal
 ![image](https://github.com/Hadi-loo/Distributed-Ordering-System-using-gRPC/assets/88041997/718f94da-849a-4f1e-a60d-f6626951ebea)
-
 
 ### Client Stream
 
