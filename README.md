@@ -80,3 +80,43 @@ To obtain results for all four methods, the server and client files are executed
 
 
 ## How to run
+
+To run this project, follow these steps:
+
+### 1. Compile Dependencies
+
+Ensure that you have Go installed on your system. Navigate to the root directory of the project where the `go.mod` file is located, and compile the dependencies by executing:
+
+```bash
+go mod download
+```
+
+### 2. Compile Protocol Buffers
+
+Compile the protocol buffers defined in the `.proto` file using Protocol Buffers compiler (`protoc`). Run the following command:
+
+```bash
+protoc --go_out=. --go-grpc_out=. --go_opt=paths=source_relative --go-grpc_opt=paths=source_relative src/proto/orderingSystem.proto
+```
+
+This command generates Go files from the protocol buffers.(orderingSystem_grpc.pb.go and orderingSystem.pb.go)
+
+### 3. Run Server
+
+To start the server, run the following command:
+
+```bash
+go run server/server.go
+```
+
+The server will start listening for incoming gRPC requests.
+
+### 4. Run Client
+
+To execute the client code, run the following command:
+
+```bash
+go run client/client.go
+```
+
+This will send requests to the server and display the responses.
