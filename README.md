@@ -69,6 +69,42 @@ We defined a service with RPC (Remote Procedure Call) methods. Inside the `Order
 
 ### Server
 
+`server.go` file contains the implementation of a gRPC server for an ordering system. It provides various RPC methods to handle client requests. Now let's delve into important parts of this code: 
+
+### Server Initialization
+The main function initializes the server by:
+- Starting the gRPC server.
+- Registering the OrderManagement service with the server.
+- Listening for incoming connections(The server listens on port 50505 for incoming gRPC requests.).
+
+### RPC Methods
+1. **UnaryGetOrder**: 
+   - Handles unary RPC requests.
+   - Searches for items based on the order name provided by the client.
+   - Returns the first found item along with its details.
+
+2. **ServerStreamGetOrder**: 
+   - Handles server streaming RPC requests.
+   - Searches for items based on the order name provided by the client.
+   - Streams back all found items to the client.
+
+3. **ClientStreamGetOrder**: 
+   - Handles client streaming RPC requests.
+   - Receives multiple order names from the client.
+   - Searches for each item and streams back the first found item for each order name.
+
+4. **BiDiStreamGetOrder**: 
+   - Handles bidirectional streaming RPC requests.
+   - Receives order names from the client.
+   - Streams back all found items for each order name.
+
+### SearchItems Function
+- Helper function to search for items based on a search string.
+- Used by various RPC methods to search for items in the database.
+
+### Database
+The database package (`orderingSystem/database`) contains a predefined list of items.
+
 ## Results
 
 To obtain results for all four methods, the server and client files are executed, after which requests are dispatched for each method accordingly:
