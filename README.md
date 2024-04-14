@@ -50,7 +50,8 @@ The `.proto` file is written in proto3 syntax, which is a language-neutral, plat
   rpc ServerStreamGetOrder(OrderRequest) returns (stream OrderResponse) {}
   rpc ClientStreamGetOrder(stream OrderRequest) returns (OrderResponse) {}
   rpc BiDiStreamGetOrder(stream OrderRequest) returns (stream OrderResponse) {}
-}```
+}
+```
 
 We defined a service with RPC (Remote Procedure Call) methods. Inside the `OrderManagement` service, there are four different RPC methods defined:
 
