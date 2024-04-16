@@ -4,12 +4,29 @@ This Go-based gRPC project aims to facilitate efficient communication between cl
 
 - [Requirements](#requirements)
 - [Structure and Implementation](#structure-and-implementation)
+  - [.proto file](#proto-file)
+  - [Client](#client)
+  - [Server](#server)
+    - [Server Initialization](#server-initialization)
+    - [RPC Methods](#rpc-methods)
+    - [SearchItems Function](#searchitems-function)
+    - [Database](#database)
 - [Results](#results)
   - [Unary](#unary)
   - [Server Stream](#server-stream)
   - [Client Stream](#client-stream)
   - [Bidirectional Stream](#bidirectional-stream)
+- [Comparison and Usage](#comparison-and-usage)
+  - [Unary](#unary)
+  - [Server Stream](#server-stream)
+  - [Client Stream](#client-stream)
+  - [Bidirectional Stream](#bidirectional-stream)
 - [How to run](#how-to-run)
+  - [1. Compile Dependencies](#1-compile-dependencies)
+  - [2. Compile Protocol Buffers](#2-compile-protocol-buffers)
+  - [3. Run Server](#3-run-server)
+  - [4. Run Client](#4-run-client)
+- [Contributions](#contributions)
 
 ## Requirements
 
@@ -205,6 +222,31 @@ To obtain results for all four methods, the server and client files are executed
 #### Server Terminal
 ![image](https://github.com/Hadi-loo/Distributed-Ordering-System-using-gRPC/assets/88041997/b98b94c2-2f63-443e-89be-f832329d6a80)
 
+
+## Comparison and Usage
+
+### Unary
+
+- Simplest form of RPC (Remote Procedure Call) in gRPC, where the client sends a single request to the server and gets back a single response.
+- Suitable for scenarios where you need to retrieve or manipulate a single piece of data with a single request-response interaction. For example, fetching a user's profile, retrieving a specific record from a 
+  database, or performing a simple calculation.
+
+### Server Streaming
+
+- Server streaming RPC allows the server to send multiple responses to a single client request. The client initiates the request, and the server responds with a stream of messages.
+- Useful when the client needs to receive a potentially large amount of data that the server can generate in a sequential manner. For instance, fetching a feed of updates, processing a large file 
+  in chunks, or real-time data feeds like stock prices.
+
+### Client Streaming
+
+- Enables the client to send a stream of messages to the server, and then the server responds with a single message (once it has processed the entire stream).
+- Appropriate when the client needs to send a significant amount of data to the server for processing, such as uploading a large file, sending telemetry data from IoT devices, or sending logs or 
+  metrics from multiple sources.
+
+### Bidirectional Streaming
+
+-  Allows both the client and the server to send a stream of messages to each other. This means that the client can send messages to the server at any time, and the server can also send messages to the client at any time.
+- Beneficial in scenarios where there is a need for real-time communication and both client and server need to send and receive data concurrently. Examples include chat applications, multiplayer games, or collaborative editing applications.
 
 
 ## How to run
