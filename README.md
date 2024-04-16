@@ -87,6 +87,29 @@ Overall, this `.proto` file defines the structure of messages and services for a
 
 ### Client
 
+The `client.go` file contains the code for a client application that communicates with a server using gRPC, a high-performance, open-source universal RPC framework. Here's a breakdown of the code and its functions:
+
+First, we defined constants for the server address, port, and a timeout value:
+
+```go
+const (
+	address          = "localhost"
+	port             = ":50505"
+	timeOutInSeconds = 1200
+)
+```
+
+The `main()` function is the entry point of the program. It establishes a connection to the gRPC server, creates a client from the connection, and enters a loop to process user input for different RPC modes.
+```go
+func main() { ... }
+```
+Based on the user's input, the program switches between different RPC modes by calling the respective functions (unaryMode, serverStreamMode, clientStreamMode, bidiStreamMode). If an invalid mode is entered, it prints an error message. The actual RPC calls would be handled in the functions that are called based on the user's choice of RPC mode.
+
+
+
+
+
+
 ### Server
 
 `server.go` file contains the implementation of a gRPC server for an ordering system. It provides various RPC methods to handle client requests. Now let's delve into important parts of this code: 
