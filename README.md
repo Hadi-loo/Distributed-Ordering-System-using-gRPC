@@ -107,25 +107,25 @@ The main function also includes a loop that prompts the user to enter the desire
 
 The actual RPC calls would be handled in the functions that are called based on the user's choice of RPC mode:
 
-1.
+1. Unary Mode
 ```go
 func unaryMode() { ... }
 ```
 This function handles the unary RPC mode where a single request is sent to the server and a single response is received.
 
-2.
+2. Server Stream Mode
 ```go
 func serverStreamMode() { ... }
 ```
 In this function, we handled the server streaming RPC mode where a single request is sent to the server and a stream of responses is received.
 
-3.
+3. Client Stream Mode
 ```go
 func clientStreamMode() { ... }
 ```
 Client streaming RPC mode where a stream of requests is sent to the server and a single response is received, is handled in this function.
 
-4.
+4. Bidirectional Stream Mode
 ```go
 func bidiStreamMode() { ... }
 ```
