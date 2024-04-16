@@ -106,6 +106,7 @@ func main() { ... }
 The main function also includes a loop that prompts the user to enter the desired RPC mode (unaryMode, serverStreamMode, clientStreamMode, bidiStreamMode) and calls the corresponding function to handle the request. The loop continues until the user enters exit. Based on the user's input, the program switches between different RPC modes. If an invalid mode is entered, it prints an error message.
 
 The actual RPC calls would be handled in the functions that are called based on the user's choice of RPC mode:
+
 1.
 ```go
 func unaryMode() { ... }
