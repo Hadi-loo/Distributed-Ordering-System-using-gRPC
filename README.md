@@ -64,6 +64,26 @@ We defined a service with RPC (Remote Procedure Call) methods. Inside the `Order
 
 4. `BiDiStreamGetOrder:` A bidirectional streaming RPC where both the client and server send a stream of messages to each other.
 
+```proto
+message OrderRequest {
+  int32 OrderID = 1;
+  string OrderName = 2;
+}
+```
+Here, we defined a message type. OrderRequest is a message containing an `OrderID` of type int32 and an `OrderName` of type string. Both of them are labeled with unique tags (1 and 2, respectively).
+
+The numbers assigned to each field (e.g., = 1, = 2) are field tags used to identify your fields in the message binary format and should be unique within a message type. They are essential for the backward compatibility of your message type.
+
+```proto
+message OrderResponse {
+  int32 OrderId = 1;
+  string OrderName = 2;
+  string OrderTimestamp = 3;
+}
+```
+Similarly, OrderResponse is a message type that includes an `OrderId`, `OrderName`, and an `OrderTimestamp`, all of which are labeled with unique tags (1, 2, and 3 respectively). These tags are used in the binary encoding of the message and should not be changed once your message type is in use.
+
+Overall, this `.proto` file defines the structure of messages and services for an ordering system that can handle different types of communication patterns between a client and a server. The generated code from this `.proto` file will be used by the client and server to serialize, send, and receive the defined messages.
 
 ### Client
 
