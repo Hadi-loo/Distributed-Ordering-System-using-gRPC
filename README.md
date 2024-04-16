@@ -99,11 +99,36 @@ const (
 )
 ```
 
-The `main()` function is the entry point of the program. It establishes a connection to the gRPC server, creates a client from the connection, and enters a loop to process user input for different RPC modes.
+The `main()` function is the entry point of the program. It establishes a connection to the gRPC server, creates a client from the connection, and processes user input for different RPC modes.
 ```go
 func main() { ... }
 ```
-Based on the user's input, the program switches between different RPC modes by calling the respective functions (unaryMode, serverStreamMode, clientStreamMode, bidiStreamMode). If an invalid mode is entered, it prints an error message. The actual RPC calls would be handled in the functions that are called based on the user's choice of RPC mode.
+The main function also includes a loop that prompts the user to enter the desired RPC mode (unaryMode, serverStreamMode, clientStreamMode, bidiStreamMode) and calls the corresponding function to handle the request. The loop continues until the user enters exit. Based on the user's input, the program switches between different RPC modes. If an invalid mode is entered, it prints an error message.
+
+The actual RPC calls would be handled in the functions that are called based on the user's choice of RPC mode:
+1.
+```go
+func unaryMode() { ... }
+```
+This function handles the unary RPC mode where a single request is sent to the server and a single response is received.
+
+2.
+```go
+func serverStreamMode() { ... }
+```
+In this function, we handled the server streaming RPC mode where a single request is sent to the server and a stream of responses is received.
+
+3.
+```go
+func clientStreamMode() { ... }
+```
+Client streaming RPC mode where a stream of requests is sent to the server and a single response is received, is handled in this function.
+
+4.
+```go
+func bidiStreamMode() { ... }
+```
+This function handles the bidirectional streaming RPC mode where both the client and server can send a stream of messages to each other.
 
 
 
